@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Slot Allocation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <h1>Real-time Parking Lot Allocation</h1>
+
+    <!-- Body Content -->
+    <div class="container">
+        <!-- Left Column -->
+        <div class="column1" style="position: fixed;">
+            <h2>Book a Slot</h2>
+            <div>
+                <input type="text" id="lotNumber" placeholder="Enter Lot Number">
+                <button onclick="bookLot()">Book</button>
+            </div>
+            <div id="message" style="display: none;"></div>
+        </div>
+    
+        <!-- Right Column -->
+        <div class="column2" style="margin-left: 30%;">
+            <h2>All Slots</h2>
+            <button onclick="showParkingLot()">Refresh</button>
+            <div id="parkingLot"></div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
