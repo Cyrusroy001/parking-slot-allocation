@@ -17,7 +17,7 @@ function displayParkingLot(data) {
     const slotDiv = document.createElement("div");
     slotDiv.classList.add("slot");
     slotDiv.style.backgroundColor = getSlotColor(slot.status);
-    slotDiv.innerHTML = slot.id
+    slotDiv.innerHTML = slot.id;
     parkingLotDiv.appendChild(slotDiv);
   }
 }
@@ -48,7 +48,11 @@ function showMessage(message, success) {
 
 function bookLot() {
   const lotNumber = document.getElementById("lotNumber").value;
-  document.getElementById("lotNumber").value = '';
+  if (lotNumber == "" || Number(lotNumber) > 50 || Number(lotNumber) < 1) {
+    showMessage("Enter a valid lot number!", false);
+    return 1;
+  }
+  document.getElementById("lotNumber").value = "";
   fetch("/bookSlot", {
     method: "POST",
     headers: {
@@ -61,8 +65,21 @@ function bookLot() {
       if (data.success) {
         showMessage("Lot booked successfully!", true);
       } else {
-        showMessage(data.message, false);
+        showMessage("Lot booking failed", false);
       }
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => {
+      showMessage("Lot booking failed", false);
+      console.error("Error:", error);
+    });
+}
+
+function showProfileDetails() {
+  var profileDetails = document.getElementById("profileDetails");
+  if (profileDetails.style.display === "none") {
+    profileDetails.style.display = "block";
+    // Fetch and populate profile details here
+  } else {
+    profileDetails.style.display = "none";
+  }
 }

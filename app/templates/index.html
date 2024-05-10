@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real-time Slot Allocation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
     <!-- Header -->
-    <h1>Real-time Parking Lot Allocation</h1>
+    <div style="display: flex; align-items: center">
+      <div>
+        <h1>Real-time Parking Lot Allocation</h1>
+      </div>
+      <div style="margin-left: auto">
+        <a class="usericon" href="#" onclick="showProfileDetails()">
+          <img
+            src="../static/images/user.png"
+            alt="User Icon"
+            style="width: 32px; height: 32px"
+          />
+        </a>
+        <div id="profileDetails" class="profile-details" style="display: none">
+          <div class="list-item">Nikhil Jaiswal</div>
+          <div class="list-item">Settings</div>
+          <div class="list-item">Reservation History</div>
+          <div class="list-item">Log out</div>
+        </div>
+      </div>
+    </div>
 
     <!-- Body Content -->
     <div class="container">
-        <!-- Left Column -->
-        <div class="column1" style="position: fixed;">
-            <h2>Book a Slot</h2>
-            <div>
-                <input type="text" id="lotNumber" placeholder="Enter Lot Number">
-                <button onclick="bookLot()">Book</button>
-            </div>
-            <div id="message" style="display: none;"></div>
+      <!-- Left Column -->
+      <div class="column1" style="position: fixed">
+        <h2>Book a Slot</h2>
+        <div>
+          <input type="text" id="lotNumber" placeholder="Enter Lot Number"/>
+          <button onclick="bookLot()">Book</button>
         </div>
-    
-        <!-- Right Column -->
-        <div class="column2" style="margin-left: 30%;">
-            <h2>All Slots</h2>
-            <button onclick="showParkingLot()">Refresh</button>
-            <div id="parkingLot"></div>
-        </div>
+        <div class="message" id="message" style="display: none"></div>
 
+        <div class="image-box" style="margin-top: 100px;">
+            <img src="../static/images/index-image.png" alt="Index Image" style="width: 300px; height: auto">
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="column2" style="margin-left: 30%">
+        <h2>All Slots</h2>
+        <button onclick="showParkingLot()">Refresh</button>
+        <div id="parkingLot"></div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
+  </body>
 </html>

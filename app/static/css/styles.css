@@ -18,6 +18,7 @@ body {
     margin: 0;
     padding: 40px;
     background-color:lavender;
+    color: rgb(39, 38, 38);
 }
 
 .container {
@@ -26,4 +27,31 @@ body {
     align-items: center; */
     justify-content: space-between;
     width: 100%;
+}
+
+.usericon {
+    margin-right: 150px;
+}
+
+.profile-details {
+    background-color: rgb(165, 178, 201);
+    position: absolute;
+    padding: 10px;
+    border: 1px solid rgb(39, 38, 38);
+    text-align: left;
+    margin-top: 10px;
+}
+
+.list-item{
+    cursor: pointer;
+    font-size: small;
+    color: rgb(39, 38, 38);
+}
+
+.message {
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    font-size: small;
+    position: absolute;
 }
